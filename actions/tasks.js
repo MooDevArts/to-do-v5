@@ -15,6 +15,15 @@ async function addTask(name, description) {
 }
 
 //mark task as done
+async function markTaskAsDone(id) {
+  const task = await Task.findById(id);
+  if (task === null) {
+    return false;
+  }
+  task.status = "done";
+  await task.save();
+  return task;
+}
 
 //delete task
 
@@ -22,4 +31,4 @@ async function addTask(name, description) {
 
 //get task by id
 
-export { addTask };
+export { addTask, markTaskAsDone };
