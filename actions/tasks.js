@@ -1,4 +1,4 @@
-import { Task } from "@/models/task";
+import { Task } from "@/schemas/task";
 import { connectToDb } from "@/actions/general";
 
 async function addTask(name, description) {
@@ -10,7 +10,15 @@ async function addTask(name, description) {
   });
 
   let saved = await newTask.save();
-  console.log(saved);
+  // console.log(saved);
 }
+
+//mark task as done
+
+//delete task
+
+//get all tasks
+
+//get task by id
 
 export { addTask };
