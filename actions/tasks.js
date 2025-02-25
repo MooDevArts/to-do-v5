@@ -16,19 +16,49 @@ async function addTask(name, description) {
 
 //mark task as done
 async function markTaskAsDone(id) {
-  const task = await Task.findById(id);
-  if (task === null) {
-    return false;
+  let task;
+  try {
+    task = await Task.findById(id);
+  } catch (error) {
+    return error;
   }
+
   task.status = "done";
   await task.save();
   return task;
 }
 
 //delete task
+async function deleteTask(id) {
+  let task;
+  try {
+    task = await Task.findByIdAndDelete(id);
+  } catch (error) {
+    return error;
+  }
+  return task;
+}
 
 //get all tasks
+async function getAllTasks() {
+  let tasks;
+  try {
+    tasks = await Task.find();
+  } catch (error) {
+    return error;
+  }
+  return tasks;
+}
 
 //get task by id
+async function getTask(id) {
+  let task;
+  try {
+    task = await Task.findById(id);
+  } catch (error) {
+    return error;
+  }
+  return task;
+}
 
-export { addTask, markTaskAsDone };
+export { addTask, markTaskAsDone, deleteTask, getAllTasks, getTask };

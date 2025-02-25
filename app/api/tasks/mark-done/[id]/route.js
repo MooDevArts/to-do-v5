@@ -1,4 +1,4 @@
-import { addTask, markTaskAsDone } from "@/actions/tasks";
+import { markTaskAsDone } from "@/actions/tasks";
 
 export async function POST(request, { params }) {
   const id = (await params).id;
