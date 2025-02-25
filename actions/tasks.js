@@ -11,6 +11,7 @@ async function addTask(name, description) {
 
   let saved = await newTask.save();
   // console.log(saved);
+  return saved;
 }
 
 //mark task as done
