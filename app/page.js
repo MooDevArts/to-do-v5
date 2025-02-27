@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default async function Home() {
-  const res = await fetch(`/api/tasks/get`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/tasks/get`);
   const { tasks } = await res.json();
   return (
     <div className="content">
