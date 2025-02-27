@@ -22,7 +22,7 @@ background-color: grey;
 .menu{
   position: absolute;
   right: 1rem;
-  bottom: 10rem;
+  bottom: 5rem;
   display: flex;
   flex-direction: column;
   gap: var(--gap);
