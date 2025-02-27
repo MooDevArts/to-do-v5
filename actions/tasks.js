@@ -16,6 +16,7 @@ async function addTask(name, description) {
 
 //mark task as done
 async function markTaskAsDone(id) {
+  await connectToDb();
   let task;
   try {
     task = await Task.findById(id);
@@ -30,6 +31,7 @@ async function markTaskAsDone(id) {
 
 //delete task
 async function deleteTask(id) {
+  await connectToDb();
   let task;
   try {
     task = await Task.findByIdAndDelete(id);
@@ -41,17 +43,19 @@ async function deleteTask(id) {
 
 //get all tasks
 async function getAllTasks() {
-  let tasks = [{ name: "task" }];
-  // try {
-  //   tasks = await Task.find();
-  // } catch (error) {
-  //   return await error.json();
-  // }
+  await connectToDb();
+  let tasks;
+  try {
+    tasks = await Task.find();
+  } catch (error) {
+    return error;
+  }
   return tasks;
 }
 
 //get task by id
 async function getTask(id) {
+  await connectToDb();
   let task;
   try {
     task = await Task.findById(id);
