@@ -5,7 +5,7 @@ export default async function Home() {
   const { tasks } = await res.json();
   return (
     <div className="content">
-      {/* {tasks.map((task) => (
+      {tasks.map((task) => (
         <Link
           className={`to-do ${task.status}`}
           href={`/${task._id}`}
@@ -13,7 +13,7 @@ export default async function Home() {
         >
           {task.name}
         </Link>
-      ))} */}
+      ))}
     </div>
   );
 }
