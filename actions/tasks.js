@@ -45,7 +45,7 @@ async function getAllTasks() {
   try {
     tasks = await Task.find();
   } catch (error) {
-    return error;
+    return await error.json();
   }
   return tasks;
 }
