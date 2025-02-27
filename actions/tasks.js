@@ -41,12 +41,12 @@ async function deleteTask(id) {
 
 //get all tasks
 async function getAllTasks() {
-  let tasks;
-  try {
-    tasks = await Task.find();
-  } catch (error) {
-    return await error.json();
-  }
+  let tasks = [{ name: "task" }];
+  // try {
+  //   tasks = await Task.find();
+  // } catch (error) {
+  //   return await error.json();
+  // }
   return tasks;
 }
 
