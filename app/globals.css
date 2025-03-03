@@ -5,7 +5,7 @@
 :root{
   --border-radius: 8px;
   --border: 1px solid black;
-  --padding: 0.5rem 1rem;
+  --padding: 0.25rem 1rem;
   --gap: 0.5rem;
 }
 
@@ -60,3 +60,17 @@ button{
   background-color: orange;
 }
 
+input{
+  border: var(--border);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+textarea{
+  border: var(--border);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  text-align: center;
+  width: 100%;
+}
