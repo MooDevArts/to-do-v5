@@ -3,14 +3,33 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function Menu({ taskId }) {
+export default function Menu({ taskId, name, description }) {
   const pathname = usePathname();
   const router = useRouter();
 
   if (pathname === "/") {
     return (
-      <nav>
-        <Link href="/add">Add</Link>
+      <nav className="menu">
+        <Link href="/add">
+          <button className="done"> Add</button>
+        </Link>
+      </nav>
+    );
+  }
+
+  if (pathname === "/add") {
+    return (
+      <nav className="menu">
+        <button
+          className="done"
+          onClick={() => console.log("Add:", name, description)}
+        >
+          {" "}
+          Add
+        </button>
+        <button className="pending" onClick={() => router.back()}>
+          Back
+        </button>
       </nav>
     );
   }
