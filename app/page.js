@@ -6,6 +6,7 @@ export default async function Home() {
   const { tasks } = await res.json();
   return (
     <div className="content">
+      STAGING
       {tasks.map((task) => (
         <Link
           className={`to-do ${task.status}`}
