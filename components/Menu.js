@@ -7,6 +7,7 @@ export default function Menu({ taskId, name, description }) {
   const pathname = usePathname();
   const router = useRouter();
 
+  // FUNCTIONS
   async function hitAddTaskApi() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -31,6 +32,21 @@ export default function Menu({ taskId, name, description }) {
     router.push("/");
   }
 
+  async function hitDelTaskApi() {
+    const requestOptions = {
+      method: "DELETE",
+      redirect: "follow",
+    };
+
+    fetch(`/api/tasks/delete/${taskId}`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
+
+    router.push("/");
+  }
+
+  // MENUS FOR DIFF PAGES
   // Home
   if (pathname === "/") {
     return (
@@ -66,7 +82,7 @@ export default function Menu({ taskId, name, description }) {
         >
           Mark Completed
         </button>
-        <button className="red" onClick={() => console.log("Delete:", taskId)}>
+        <button className="red" onClick={hitDelTaskApi}>
           Delete
         </button>
         <button className="pending" onClick={() => router.back()}>
