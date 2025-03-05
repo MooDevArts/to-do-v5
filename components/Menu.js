@@ -46,6 +46,20 @@ export default function Menu({ taskId, name, description }) {
     router.push("/");
   }
 
+  async function hitDoneTaskApi() {
+    const requestOptions = {
+      method: "POST",
+      redirect: "follow",
+    };
+
+    fetch(`/api/tasks/mark-done/${taskId}`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
+
+    router.push("/");
+  }
+
   // MENUS FOR DIFF PAGES
   // Home
   if (pathname === "/") {
@@ -76,10 +90,7 @@ export default function Menu({ taskId, name, description }) {
   if (taskId) {
     return (
       <nav className="menu">
-        <button
-          className="done"
-          onClick={() => console.log("Mark Completed:", taskId)}
-        >
+        <button className="done" onClick={hitDoneTaskApi}>
           Mark Completed
         </button>
         <button className="red" onClick={hitDelTaskApi}>
