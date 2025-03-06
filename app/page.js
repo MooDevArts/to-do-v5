@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function Home() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/tasks/get`, {
-    cache: "no-store",
+    // cache: "no-store",
   });
   const { tasks } = await res.json();
   return (
