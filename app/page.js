@@ -2,7 +2,9 @@ import Menu from "@/components/Menu";
 import Link from "next/link";
 
 export default async function Home() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/tasks/get`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/tasks/get`, {
+    cache: "no-store",
+  });
   const { tasks } = await res.json();
   return (
     <div className="content">
