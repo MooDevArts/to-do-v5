@@ -1,5 +1,4 @@
 import { deleteTask } from "@/actions/tasks";
-import { revalidatePath } from "next/cache";
 
 export async function DELETE(request, { params }) {
   const id = (await params).id;
