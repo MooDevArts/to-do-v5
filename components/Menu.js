@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function Menu({ taskId, name, description }) {
+export default function Menu({ taskId, name, description, addButtonRef }) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -76,7 +76,7 @@ export default function Menu({ taskId, name, description }) {
   if (pathname === "/add") {
     return (
       <nav className="menu">
-        <button className="done" onClick={hitAddTaskApi}>
+        <button className="done" onClick={hitAddTaskApi} ref={addButtonRef}>
           Add
         </button>
         <button className="pending" onClick={() => router.back()}>
